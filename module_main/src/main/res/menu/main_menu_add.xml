@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="搜索"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_group_chat"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:title="发起群聊"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_add_friend"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:title="添加朋友"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_scan"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:title="扫一扫"
+        app:showAsAction="never" />
+</menu>

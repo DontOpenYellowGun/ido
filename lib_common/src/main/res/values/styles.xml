@@ -1,0 +1,100 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--App-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+
+    <!--ToolBar-->
+    <!--ToolBar-->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+
+        <item name="overlapAnchor">false</item>  <!--把该属性改为false即可使menu位置位于toolbar之下-->
+    </style>
+
+    <style name="ActionButton.Overflow.Base" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_more_vert_white_24dp</item>
+    </style>
+
+    <style name="Theme.ToolBar.Common" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="actionOverflowButtonStyle">@style/ActionButton.Overflow.Base</item>
+        <item name="android:contentInsetStart" tools:targetApi="lollipop">0dp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:elevation" tools:targetApi="lollipop">6dp</item>
+        <item name="android:title">@null</item>
+    </style>
+
+    <!--RecyclerView-->
+    <style name="ThemeRecyclerView">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:padding">@dimen/default_padding</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+    <!--CardView-->
+    <style name="ThemeCardView" parent="CardView">
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">@dimen/default_card_radius</item>
+        <item name="cardElevation">@dimen/default_card_elevation</item>
+        <item name="contentPadding">@dimen/default_padding</item>
+    </style>
+
+    <!--CardView-->
+    <style name="ThemeRadiusCardView" parent="CardView">
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">6dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="contentPadding">@dimen/default_padding</item>
+    </style>
+
+    <!--button-->
+    <style name="ThemeButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:background">@drawable/shape_color_primary_circle</item>
+    </style>
+
+    <style name="ThemeButtonRed">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:background">@drawable/shape_red_circle</item>
+    </style>
+
+    <style name="MatisseApp" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="toolbar">@style/Toolbar.Dracula</item>
+        <item name="album.title.color">@color/dracula_album_title_text</item>
+        <item name="album.count.color">@color/dracula_album_count_text</item>
+        <item name="album.selected">@android:color/white</item>
+        <item name="album.placeholder">@color/dracula_album_placeholder</item>
+        <item name="album.emptyView">@drawable/ic_empty_dracula</item>
+        <item name="album.emptyView.color">@color/dracula_empty_view</item>
+        <item name="item.placeholder">@color/dracula_item_placeholder</item>
+        <item name="page.bg">@color/dracula_page_bg</item>
+        <item name="bottomToolbar.bg">@color/colorPrimary</item>
+        <item name="bottomToolbar.preview.color">@color/dracula_bottom_toolbar_preview</item>
+        <item name="bottomToolbar.apply.color">@color/colorAccent</item>
+        <item name="android:listPopupWindowStyle">@style/Popup.App</item>
+        <item name="listPopupWindowStyle">@style/Popup.App</item>
+        <item name="capture.color">@color/dracula_capture</item>
+    </style>
+
+    <style name="Popup.App" parent="Widget.AppCompat.ListPopupWindow">
+        <item name="android:popupBackground">@color/colorPrimary</item>
+    </style>
+
+</resources>

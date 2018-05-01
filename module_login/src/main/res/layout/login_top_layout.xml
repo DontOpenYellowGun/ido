@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/login_fragment_login">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Artificial  Intelligence Treasures Individual"
+        android:textColor="@color/tc_gray"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:text="人工智能   珍爱个体"
+        android:textColor="@color/tc_gray"
+        android:textSize="12sp"
+        android:visibility="gone" />
+</merge>

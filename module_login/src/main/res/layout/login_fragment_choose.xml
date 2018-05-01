@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.fangao.module_login.view.ChooseFragment" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/top"
+            layout="@layout/login_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <android.support.v7.widget.AppCompatButton
+                style="@style/ThemeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="登录"
+                app:clickCommand="@{viewModel.mLoginCommand}" />
+
+            <android.support.v7.widget.AppCompatButton
+                style="@style/ThemeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="注册"
+                app:clickCommand="@{viewModel.mRegisterCommand}" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

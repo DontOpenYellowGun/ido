@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingTop="@dimen/main_statusbar_view_height"
+        android:theme="@style/Theme.ToolBar.Common"
+        app:layout_collapseMode="pin"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        tools:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        tools:paddingTop="0dp"
+        tools:targetApi="lollipop"
+        tools:title="Title">
+
+        <TextView
+            android:id="@+id/title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:maxWidth="200dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_behavior="com.fangao.module_work.behavior.DrawerBehavior"
+            tools:text="Title"
+            tools:visibility="gone" />
+
+    </android.support.v7.widget.Toolbar>
+</merge>
+
+

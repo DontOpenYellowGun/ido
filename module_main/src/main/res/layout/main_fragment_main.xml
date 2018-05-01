@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dreambuilder.module_main.view.MainFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.fangao.lib_common.view.NoScorllViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:overScrollMode="never" />
+
+        <!--   <ImageView
+               android:id="@+id/shadow_imageview"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_gravity="bottom"
+               android:layout_marginBottom="48dp"
+               android:background="@drawable/actionbar_shadow_up"
+               android:visibility="gone" />-->
+
+        <include layout="@layout/view_line_h" />
+
+        <com.fangao.lib_common.view.widget.BottomBar
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            app:itemBackground="?selectableItemBackground" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.fangao.module_login.viewmodel.LoginViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/top"
+                layout="@layout/login_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/username_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColorHint="@color/tc_gray">
+
+                        <EditText
+                            android:id="@+id/username_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_person_pin_grey_300_24dp"
+                            android:drawablePadding="8dp"
+                            android:hint="用户名/手机号/邮箱"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:paddingRight="60dp"
+                            android:text="@={viewModel.mUserName}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/tc_gray" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/more_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/username_layout"
+                        android:layout_alignEnd="@id/username_layout"
+                        android:layout_alignRight="@id/username_layout"
+                        android:layout_gravity="end|bottom"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?selectableItemBackgroundBorderless"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_keyboard_arrow_down_grey_24dp" />
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColorHint="@color/tc_gray"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="16"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/password_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_lock_outline_grey_300_24dp"
+                        android:drawablePadding="8dp"
+                        android:drawableStart="@drawable/ic_lock_outline_grey_300_24dp"
+                        android:hint="密码"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="16"
+                        android:text="@={viewModel.mPassword}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/tc_gray" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.mIsSavePwd}"
+                        android:text="记住密码"
+                        android:textColor="@color/tc_gray" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        clickCommand="@{viewModel.forgetPwdCommand}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:text="忘记密码？"
+                        android:textColor="@color/tc_gray" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_gravity="right"
+                    clickCommand="@{viewModel.registCommand}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="还没有账号，注册账号 "
+                    android:textColor="@color/tc_gray" />
+
+                <android.support.v7.widget.AppCompatButton
+                    style="@style/ThemeButton"
+                    clickCommand="@{viewModel.loginCommand}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="登录" />
+
+                <TextView
+                    clickCommand="@{viewModel.registCommand}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="20dp"
+                    android:text="新用户注册"
+                    android:textColor="@color/tc_gray"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <include layout="@layout/login_layout_bottom" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</layout>

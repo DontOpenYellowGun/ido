@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.fangao.module_login.viewmodel.RegisterViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/top"
+                layout="@layout/login_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/username_input_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColorHint="@color/tc_gray"
+                        app:errorEnabled="true">
+
+                        <EditText
+                            android:id="@+id/username_edit_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_person_pin_grey_300_24dp"
+                            android:drawablePadding="8dp"
+                            android:hint="手机号"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:text="@={viewModel.mUserName}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/tc_gray" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:enabled="@{viewModel.viewStyle.isEnableClickGetCode}"
+                        android:gravity="center"
+                        android:minWidth="120dp"
+                        android:text="@{viewModel.mCountNumStr}"
+                        android:textColor="@color/colorAccent"
+                        app:clickCommand="@{viewModel.getCodeCommand}"
+                        tools:text="点击获取验证码" />
+
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/code_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColorHint="@color/tc_gray">
+
+                    <EditText
+                        android:id="@+id/code_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_lock_outline_grey_300_24dp"
+                        android:drawablePadding="8dp"
+                        android:hint="验证码"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:text="@={viewModel.mCode}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/tc_gray" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColorHint="@color/tc_gray"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/password_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_lock_outline_grey_300_24dp"
+                        android:drawablePadding="8dp"
+                        android:drawableStart="@drawable/ic_lock_outline_grey_300_24dp"
+                        android:hint="密码"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.mPassword}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/tc_gray" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingBottom="20dp"
+                    android:paddingTop="20dp"
+                    android:text="注册即表示同意《爱体用户服务协议》"
+                    android:textColor="@color/tc_gray" />
+
+                <android.support.v7.widget.AppCompatButton
+                    style="@style/ThemeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="注册"
+                    app:clickCommand="@{viewModel.registerCommand}" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

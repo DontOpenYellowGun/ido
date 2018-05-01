@@ -1,0 +1,113 @@
+<resources>
+    <attr name="requestFocus" format="boolean" />
+    <attr name="itemView" format="reference" />
+    <attr name="items" format="reference" />
+    <attr name="adapter" format="reference" />
+    <attr name="onScrollChangeCommand" format="reference" />
+    <attr name="onScrollStateChangedCommand" format="reference" />
+    <attr name="url" format="string" />
+    <attr name="onTouchCommand" format="reference" />
+    <attr name="longClickCommand" format="reference" />
+    <attr name="onTouchCommandDown" format="reference" />
+    <attr name="onTouchCommandUp" format="reference" />
+    <attr name="clickCommand" format="reference" />
+    <attr name="idName" format="string" />
+    <attr name="data" format="string" />
+    <attr name="onFocusChangeCommand" format="reference" />
+    <declare-styleable name="View">
+        <attr name="clickCommand" />
+        <attr name="onFocusChangeCommand" />
+        <attr name="onTouchCommand" />
+        <attr name="onTouchCommandDown" />
+        <attr name="onTouchCommandUp" />
+    </declare-styleable>
+    <declare-styleable name="AdapterView">
+        <attr name="itemView" />
+        <attr name="items" />
+        <attr name="adapter" />
+        <attr name="dropDownItemView" format="reference" />
+        <attr name="itemIds" format="reference" />
+        <attr name="itemIsEnabled" format="reference" />
+        <attr name="onScrollStateChangedCommand" />
+        <attr name="onScrollChangeCommand" />
+        <attr name="onLoadMoreCommand" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="TextView">
+        <attr name="clickCommand" />
+        <attr name="requestFocus" />
+        <attr name="beforeTextChangedCommand" format="reference" />
+        <attr name="onTextChangedCommand" format="reference" />
+        <attr name="afterTextChangedCommand" format="reference" />
+        <attr name="length" format="integer" />
+        <attr name="point" format="integer" />
+        <attr name="sectionStr" format="string" />
+    </declare-styleable>
+    <declare-styleable name="ImageView">
+        <attr name="clickCommand" />
+        <attr name="url" />
+        <attr name="isGif" format="boolean" />
+        <attr name="urldoorBell" format="string" />
+        <attr name="cameraUrl" format="string" />
+        <attr name="request_width" format="integer" />
+        <attr name="request_height" format="integer" />
+        <attr name="placeholderImageRes" format="reference|color" />
+        <attr name="placeholderDrawable" format="reference" />
+        <attr name="onSuccessCommand" format="reference" />
+        <attr name="onFailureCommand" format="reference" />
+        <attr name="circle" format="boolean" />
+        <attr name="progressDrawable" format="integer" />
+        <attr name="frameWidth" format="integer" />
+        <attr name="frameColor" format="reference" />
+        <attr name="isVague" format="boolean" />
+        <attr name="backgroundDrawable" format="integer" />
+        <attr name="random" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="ViewGroup">
+        <attr name="clickCommand" />
+        <attr name="itemView" />
+        <attr name="viewModels" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="ListView" parent="AdapterView">
+        <attr name="onItemClickCommand" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="ViewPager">
+        <attr name="itemView" />
+        <attr name="items" />
+        <attr name="adapter" />
+        <attr name="pageTitles" format="reference" />
+        <attr name="itemWidth" format="float" />
+        <attr name="onPageScrolledCommand" format="reference" />
+        <attr name="onPageSelectedCommand" format="reference" />
+        <attr name="onPageScrollStateChangedCommand" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="NestedScrollView">
+        <attr name="onScrollChangeCommand" />
+    </declare-styleable>
+    <declare-styleable name="SimpleDraweeView">
+        <attr name="url" />
+    </declare-styleable>
+    <declare-styleable name="ScrollView">
+        <attr name="onScrollChangeCommand" />
+    </declare-styleable>
+    <declare-styleable name="WebView">
+        <attr name="render" format="string" />
+    </declare-styleable>
+    <declare-styleable name="RecyclerView" parent="AdapterView">
+        <attr name="itemClickCommand" format="reference" />
+        <attr name="itemDecoration" format="reference" />
+    </declare-styleable>
+    <!--刷新加载更多控件-->
+    <declare-styleable name="SmartRefreshLayout">
+        <attr name="onRefresh" format="reference" />
+        <attr name="onLoadMore" format="reference" />
+        <attr name="refreshing" format="boolean" />
+        <attr name="loadingMore" format="boolean" />
+    </declare-styleable>
+
+    <!--页面状态控件-->
+    <declare-styleable name="LoadingLayout">
+        <attr name="pageState" format="reference" />
+        <attr name="reloadCommand" format="reference" />
+        <attr name="errorStr" format="reference" />
+    </declare-styleable>
+</resources>
