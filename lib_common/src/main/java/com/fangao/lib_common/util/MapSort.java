@@ -3,7 +3,6 @@ package com.fangao.lib_common.util;
 
 import com.fangao.lib_common.base.BaseApplication;
 import com.fangao.lib_common.constants.HawkConstant;
-import com.fangao.lib_common.manager.UserManager;
 import com.orhanobut.hawk.Hawk;
 
 import org.apache.commons.codec.binary.Hex;

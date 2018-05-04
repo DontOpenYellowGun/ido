@@ -1,7 +1,6 @@
 package com.fangao.lib_common.base;
 
 import android.os.Bundle;
-import android.support.annotation.FloatRange;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
@@ -13,36 +12,27 @@ import android.widget.TextView;
 
 import com.fangao.lib_common.R;
 
-import me.yokeyword.fragmentation.SwipeBackLayout;
-import me.yokeyword.fragmentation_swipeback.core.ISwipeBackFragment;
-import me.yokeyword.fragmentation_swipeback.core.SwipeBackFragmentDelegate;
-
 /**
  * 文件描述：
  * <p>
  * 作者：   Created by sven on 2017/10/22.
  */
 
-public abstract class ToolbarFragment extends BaseFragment implements ISwipeBackFragment {
+public abstract class ToolbarFragment extends BaseFragment {
 
     private Toolbar mToolBar;
 
     private ToolbarFragment.Builder mBuilder;
 
-    final SwipeBackFragmentDelegate mDelegate = new SwipeBackFragmentDelegate(this);
-
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mDelegate.onViewCreated(view, savedInstanceState);
         initToolbar();
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDelegate.onCreate(savedInstanceState);
     }
 
     public Toolbar getmToolBar() {
@@ -174,43 +164,4 @@ public abstract class ToolbarFragment extends BaseFragment implements ISwipeBack
             titleTextView.setText(title);
         }
     }
-
-
-    @Override
-    public View attachToSwipeBack(View view) {
-        return mDelegate.attachToSwipeBack(view);
-    }
-
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        mDelegate.onHiddenChanged(hidden);
-    }
-
-    public SwipeBackLayout getSwipeBackLayout() {
-        return mDelegate.getSwipeBackLayout();
-    }
-
-    /**
-     * 是否可滑动
-     *
-     * @param enable
-     */
-    public void setSwipeBackEnable(boolean enable) {
-        mDelegate.setSwipeBackEnable(enable);
-    }
-
-    /**
-     * Set the offset of the parallax slip.
-     */
-    public void setParallaxOffset(@FloatRange(from = 0.0f, to = 1.0f) float offset) {
-        mDelegate.setParallaxOffset(0.5f);
-    }
-
-    @Override
-    public void onDestroyView() {
-        mDelegate.onDestroyView();
-        super.onDestroyView();
-    }
-
 }

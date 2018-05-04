@@ -4,9 +4,6 @@ import android.content.Context;
 
 import com.fangao.lib_common.manager.UserManager;
 import com.fangao.lib_common.util.AppUtil;
-import com.dreambuilder.module_main.model.dao.DbManager;
-
-import io.rong.imkit.RongIM;
 
 /**
  * 文件描述：
@@ -26,9 +23,6 @@ public class LibManager {
         } else {
             imAppKey=IM_RELEASE_APP_KEY;
         }
-        RongIM.init(context, imAppKey);
-        ImCallBack.init(context);
-        DbManager.INSTANCE.init(context);
         UserManager.INSTANCE.init();
     }
 }

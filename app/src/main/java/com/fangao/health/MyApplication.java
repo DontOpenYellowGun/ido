@@ -6,7 +6,6 @@ import android.support.multidex.MultiDex;
 
 import com.bugtags.library.Bugtags;
 import com.fangao.lib_common.base.BaseApplication;
-import com.dreambuilder.module_main.support.manager.LibManager;
 import com.tencent.bugly.crashreport.CrashReport;
 
 
@@ -21,7 +20,6 @@ public class MyApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        LibManager.initIm(this);
 //        initBugtags();
         initBugly();
     }

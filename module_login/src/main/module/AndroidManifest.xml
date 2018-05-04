@@ -4,7 +4,7 @@
 
     <application
         android:name="debug.DebugApplication"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/login_module_name"
         android:supportsRtl="true"
@@ -15,7 +15,6 @@
             android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

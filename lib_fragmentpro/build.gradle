@@ -13,15 +13,15 @@ android {
 }
 
 dependencies {
-    implementation("com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycleVersion") {
+    api("com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycleVersion") {
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.android.support', module: 'support-core-utils'
     }
-    implementation "com.android.support:support-v4:$supportVersion"
-    implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
-    implementation ("com.alibaba:arouter-api:$arouterVersion") {
+    api "com.android.support:appcompat-v7:$supportVersion"
+    api "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    api "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    api ("com.alibaba:arouter-api:$arouterVersion") {
         exclude group: 'com.android.support', module: 'support-v4'
     }
 }

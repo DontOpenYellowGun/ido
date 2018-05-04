@@ -13,7 +13,9 @@ android {
 }
 
 dependencies {
+
     api fileTree(include: ['*.jar'], dir: 'libs')
+
     //rx
     api "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
     api ("io.reactivex.rxjava2:rxandroid:$rxandroidVersion"){
@@ -24,7 +26,6 @@ dependencies {
         exclude group: 'io.reactivex.rxjava2', module: 'rxandroid'
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-
     api "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermissionsVersion"
 
     //http
@@ -39,6 +40,9 @@ dependencies {
     }
     api "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
     api "com.google.code.gson:gson:$gosnVersion"
+    api ("cn.leancloud.android:avoscloud-sdk:v$leancloudVersion"){
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
 
     //database
     api ("com.orhanobut:hawk:$hawkVersion"){
@@ -64,9 +68,6 @@ dependencies {
     }
 
     //other
-    api ("cn.leancloud.android:avoscloud-sdk:v$leancloudVersion"){
-        exclude group: 'com.android.support', module: 'support-v4'
-    }
     api ("com.bugtags.library:bugtags-lib:$buglyTagsVersion"){
         exclude group: 'com.android.support', module: 'support-v4'
     }
@@ -80,6 +81,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'recyclerview-v7'
         exclude group: 'com.android.support', module: 'support-annotations'
     }
+//    api "com.github.razerdp:BasePopup:$popVersion"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanaryVersion"
     api project(':lib_binding')

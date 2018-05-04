@@ -47,14 +47,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "com.android.support:multidex:$multidex"
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api "com.android.support:multidex:$multidex"
     if (isModule.toBoolean()) {
 //        组件开发模式
-        implementation project(':lib_common')
+        api project(':lib_common')
     } else {
 //        集成模式
-        implementation project(':module_login')
-        implementation project(':module_main')
+        api project(':module_login')
+        api project(':module_main')
     }
 }

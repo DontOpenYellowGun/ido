@@ -17,12 +17,12 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.dreambuilder.module_main.R;
+import com.dreambuilder.module_main.databinding.MainFragmentMainBinding;
 import com.fangao.lib_common.base.BaseFragment;
 import com.fangao.lib_common.event.CommonEvent;
 import com.fangao.lib_common.view.widget.BottomBar;
 import com.fangao.lib_common.view.widget.BottomBarTab;
-import com.fangao.module_main.R;
-import com.fangao.module_main.databinding.MainFragmentMainBinding;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -39,10 +39,6 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 @Route(path = "/main/MainFragment")
 public class MainFragment extends BaseFragment {
-
-    private static final long WAIT_TIME = 2000L;
-
-    private long TOUCH_TIME = 0;
 
     private MainFragmentMainBinding mBinding;
 
@@ -115,14 +111,10 @@ public class MainFragment extends BaseFragment {
 
     private void inflateChildFragments() {
 
-        SupportFragment messageFragment = (SupportFragment) ARouter.getInstance().build("/main/ConversationListParentFragment").navigation();
-        SupportFragment contactsFragment = (SupportFragment) ARouter.getInstance().build("/main/ContactsFragment").navigation();
-        SupportFragment discoverFragment = (SupportFragment) ARouter.getInstance().build("/main/DiscoverFragment").navigation();
-        Bundle args = new Bundle();
-        args.putString("url", "discover/index/1");
-        args.putBoolean("isShowToolbar", false);
-        discoverFragment.setArguments(args);
-        SupportFragment meFragment = (SupportFragment) ARouter.getInstance().build("/main/MeFragment").navigation();
+        SupportFragment messageFragment = (SupportFragment) ARouter.getInstance().build("/main/TestFragment").navigation();
+        SupportFragment contactsFragment = (SupportFragment) ARouter.getInstance().build("/main/TestFragment").navigation();
+        SupportFragment discoverFragment = (SupportFragment) ARouter.getInstance().build("/main/TestFragment").navigation();
+        SupportFragment meFragment = (SupportFragment) ARouter.getInstance().build("/main/TestFragment").navigation();
 
         final ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(messageFragment);
@@ -133,7 +125,6 @@ public class MainFragment extends BaseFragment {
         mBinding.viewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-
                 return fragments.get(position);
             }
 
