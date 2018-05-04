@@ -18,7 +18,7 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="@dimen/main_bottom_bar_height"
             android:clipToPadding="false"
             android:overScrollMode="never" />
 
@@ -27,13 +27,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="@dimen/main_bottom_bar_height"
             android:background="@drawable/actionbar_shadow_up" />
 
         <com.fangao.lib_common.view.widget.BottomBar
             android:id="@+id/bottom_bar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/main_bottom_bar_height"
             android:layout_gravity="bottom"
             android:background="@color/white"
             app:itemBackground="?selectableItemBackground" />
