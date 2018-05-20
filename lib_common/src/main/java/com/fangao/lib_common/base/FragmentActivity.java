@@ -22,7 +22,7 @@ public abstract class FragmentActivity extends EventActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-        translucentStatusBar();
+//        translucentStatusBar();
         loadRootFragment(R.id.fragment_container, loadFragment());
     }
 

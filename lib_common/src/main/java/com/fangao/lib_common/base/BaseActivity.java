@@ -52,7 +52,7 @@ public abstract class BaseActivity extends EventActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mRootView = initBinding();
-        translucentStatusBar();
+//        translucentStatusBar();
         SoftHideKeyBoardUtil.assistActivity(this);
     }
 

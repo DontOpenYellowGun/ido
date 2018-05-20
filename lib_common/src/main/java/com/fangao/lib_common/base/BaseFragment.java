@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.fangao.lib_common.R;
 
+import me.yokeyword.fragmentation.anim.DefaultFadeAnimator;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
@@ -55,6 +56,6 @@ public abstract class BaseFragment extends EventFragment {
 
     @Override
     public FragmentAnimator onCreateFragmentAnimator() {
-        return new DefaultHorizontalAnimator();
+        return new DefaultFadeAnimator();
     }
 }

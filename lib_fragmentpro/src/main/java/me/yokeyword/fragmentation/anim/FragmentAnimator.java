@@ -44,18 +44,6 @@ public class FragmentAnimator implements Parcelable {
         popExit = in.readInt();
     }
 
-    public static final Creator<FragmentAnimator> CREATOR = new Creator<FragmentAnimator>() {
-        @Override
-        public FragmentAnimator createFromParcel(Parcel in) {
-            return new FragmentAnimator(in);
-        }
-
-        @Override
-        public FragmentAnimator[] newArray(int size) {
-            return new FragmentAnimator[size];
-        }
-    };
-
     public int getEnter() {
         return enter;
     }

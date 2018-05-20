@@ -1,3 +1,4 @@
 <resources>
     <dimen name="task_bottom_bar_height">52dp</dimen>
+    <dimen name="task_avatar_top_padding">0dp</dimen>
 </resources>
