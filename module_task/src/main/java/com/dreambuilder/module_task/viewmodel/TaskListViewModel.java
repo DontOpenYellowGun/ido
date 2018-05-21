@@ -4,6 +4,7 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 
+import com.dreambuilder.module_task.model.Task;
 import com.fangao.lib_common.base.BaseFragment;
 import com.kelin.mvvmlight.command.ReplyCommand;
 import com.weavey.loading.lib.LoadingLayout;
@@ -26,7 +27,7 @@ public class TaskListViewModel {
     //</editor-fold>
 
     //<editor-fold desc="数据模型    Items">
-    public final ObservableList<Object> items = new ObservableArrayList<>();
+    public final ObservableList<Task> items = new ObservableArrayList<>();
     //</editor-fold>
 
     //<editor-fold desc="控件命令    Command">
@@ -57,6 +58,7 @@ public class TaskListViewModel {
 
     //<editor-fold desc="接口请求    Api">
     private void getData() {
+
         //        RemoteDataSource.INSTANCE.getFriendList()
         //                .compose(mFragment.<BaseEntity<List<User>>>bindToLifecycle())
         //                .subscribe(new NewHttpSubscriber<List<User>>() {

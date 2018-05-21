@@ -1,8 +1,10 @@
 package com.dreambuilder.module_task.view;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,10 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dreambuilder.module_main.R;
 import com.dreambuilder.module_main.databinding.TaskFragmentTaskListBinding;
+import com.dreambuilder.module_task.model.Task;
+import com.dreambuilder.module_task.view.adapter.TaskListAdapter;
 import com.dreambuilder.module_task.viewmodel.TaskListViewModel;
 import com.fangao.lib_common.base.BaseFragment;
+import com.fangao.lib_common.util.ToastUtil;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 
 /**
@@ -26,10 +33,14 @@ public class TaskListFragment extends BaseFragment {
 
     private TaskFragmentTaskListBinding mBinding;
 
+    private TaskListViewModel mViewModel;
+
+    private TaskListAdapter mTaskListAdapter;
+
     @Override
     protected View initBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.task_fragment_task_list, container, false);
-        TaskListViewModel mViewModel = new TaskListViewModel(this);
+        mViewModel = new TaskListViewModel(this);
         mBinding.setViewModel(mViewModel);
         return mBinding.getRoot();
     }
@@ -37,15 +48,67 @@ public class TaskListFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBinding.addTaskImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                start("/task/TaskDetailFragment");
-            }
-        });
+//        mBinding.addTaskImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                start("/task/TaskDetailFragment");
+//            }
+//        });
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
         RecyclerView taskRecyclerView = mBinding.taskRecyclerView;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(_mActivity);
         taskRecyclerView.setLayoutManager(linearLayoutManager);
-        
+        taskRecyclerView.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(_mActivity)
+                        .color(ContextCompat.getColor(_mActivity, R.color.line_d6d6d6))
+                        .size(1)
+                        .build());
+        mTaskListAdapter = new TaskListAdapter(R.layout.task_item_task_list, mViewModel.items);
+        mTaskListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ToastUtil.INSTANCE.toast(String.valueOf(position));
+            }
+        });
+        mTaskListAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                mViewModel.items.remove(position);
+                return false;
+            }
+        });
+        taskRecyclerView.setAdapter(mTaskListAdapter);
+        mViewModel.items.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Task>>() {
+            @Override
+            public void onChanged(ObservableList<Task> sender) {
+                mTaskListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onItemRangeChanged(ObservableList<Task> sender, int positionStart, int itemCount) {
+                mTaskListAdapter.notifyItemRangeChanged(positionStart, itemCount);
+            }
+
+            @Override
+            public void onItemRangeInserted(ObservableList<Task> sender, int positionStart, int itemCount) {
+                mTaskListAdapter.notifyItemRangeInserted(positionStart, itemCount);
+            }
+
+            @Override
+            public void onItemRangeMoved(ObservableList<Task> sender, int fromPosition, int toPosition, int itemCount) {
+
+            }
+
+            @Override
+            public void onItemRangeRemoved(ObservableList<Task> sender, int positionStart, int itemCount) {
+                mTaskListAdapter.notifyItemRangeRemoved(positionStart, itemCount);
+            }
+        });
+        for (int i = 0; i < 4; i++) {
+            mViewModel.items.add(new Task("todo" + i));
+        }
     }
 }

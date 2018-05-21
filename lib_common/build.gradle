@@ -81,6 +81,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'recyclerview-v7'
         exclude group: 'com.android.support', module: 'support-annotations'
     }
+    api 'com.yqritc:recyclerview-flexibledivider:1.4.0'
 //    api "com.github.razerdp:BasePopup:$popVersion"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanaryVersion"

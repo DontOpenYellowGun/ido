@@ -19,7 +19,7 @@ public class DebugApplication extends BaseApplication {
     }
 
     private void init() {
-        LibManager.initIm(this);
-        CommonRequest.getInitData();
+//        LibManager.initIm(this);
+//        CommonRequest.getInitData();
     }
 }
