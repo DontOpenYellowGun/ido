@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.dreambuilder.module_main.R;
-import com.dreambuilder.module_main.databinding.TaskFragmentTaskDetailBinding;
+import com.dreambuilder.module_task.R;
+import com.dreambuilder.module_task.databinding.TaskFragmentTaskDetailBinding;
 import com.dreambuilder.module_task.viewmodel.TaskDetailViewModel;
 import com.fangao.lib_common.base.BaseFragment;
 

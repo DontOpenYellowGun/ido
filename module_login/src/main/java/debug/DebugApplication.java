@@ -1,5 +1,8 @@
 package debug;
 
+import android.content.Context;
+import android.support.multidex.MultiDex;
+
 import com.fangao.lib_common.base.BaseApplication;
 
 /**
@@ -12,5 +15,12 @@ public class DebugApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+    }
+
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

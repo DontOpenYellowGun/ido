@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!-- android:shape指定形状类型，默认为rectangle -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:innerRadius="16dp"
+    android:shape="rectangle"
+    android:thickness="100dp"
+    android:useLevel="false">
+
+    <corners android:radius="2dp" />
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/colorPrimary" />
+</shape>

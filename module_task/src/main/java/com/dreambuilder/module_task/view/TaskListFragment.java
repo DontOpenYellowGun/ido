@@ -5,6 +5,7 @@ import android.databinding.ObservableList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,13 +14,17 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.dreambuilder.module_main.R;
-import com.dreambuilder.module_main.databinding.TaskFragmentTaskListBinding;
+import com.dreambuilder.module_task.R;
+import com.dreambuilder.module_task.databinding.TaskFragmentTaskListBinding;
 import com.dreambuilder.module_task.model.Task;
+import com.dreambuilder.module_task.model.TaskType;
 import com.dreambuilder.module_task.view.adapter.TaskListAdapter;
+import com.dreambuilder.module_task.view.adapter.TaskTypeAdapter;
 import com.dreambuilder.module_task.viewmodel.TaskListViewModel;
 import com.fangao.lib_common.base.BaseFragment;
+import com.fangao.lib_common.util.DensityUtils;
 import com.fangao.lib_common.util.ToastUtil;
+import com.fangao.lib_common.view.widget.GridSpacingItemDecoration;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 
@@ -55,6 +60,22 @@ public class TaskListFragment extends BaseFragment {
 //            }
 //        });
         initRecyclerView();
+        initTypeRecyclerView();
+    }
+
+    private void initTypeRecyclerView() {
+        mBinding.typeRecyclerView.setLayoutManager(new GridLayoutManager(_mActivity, 2));
+        mBinding.typeRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, DensityUtils.dip2px(16), false, 0));
+        TaskTypeAdapter adapter = new TaskTypeAdapter(_mActivity, mViewModel.mTaskType);
+        adapter.setOnItemClickListener(new TaskTypeAdapter.onItemClickListener() {
+            @Override
+            public void onClick(View holder, int position) {
+                ToastUtil.INSTANCE.toast(String.valueOf(position));
+            }
+        });
+        mBinding.typeRecyclerView.setAdapter(adapter);
+        mViewModel.mTaskType.add(new TaskType());
+        mViewModel.mTaskType.add(new TaskType());
     }
 
     private void initRecyclerView() {

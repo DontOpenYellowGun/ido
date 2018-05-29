@@ -19,6 +19,9 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+        if (isModule.toBoolean()) {
+            multiDexEnabled true
+        }
     }
 
     dataBinding {
@@ -43,4 +46,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.annotationProcessor"
     implementation project(':lib_common')
+    if (isModule.toBoolean()) {
+        implementation "com.android.support:multidex:$multidex"
+    }
 }

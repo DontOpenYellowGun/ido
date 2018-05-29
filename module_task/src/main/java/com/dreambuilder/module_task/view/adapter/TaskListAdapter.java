@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.dreambuilder.module_main.R;
+import com.dreambuilder.module_task.R;
 import com.dreambuilder.module_task.model.Task;
 
 import java.util.List;

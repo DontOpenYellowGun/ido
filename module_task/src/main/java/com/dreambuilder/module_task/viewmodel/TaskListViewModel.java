@@ -5,6 +5,7 @@ import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 
 import com.dreambuilder.module_task.model.Task;
+import com.dreambuilder.module_task.model.TaskType;
 import com.fangao.lib_common.base.BaseFragment;
 import com.kelin.mvvmlight.command.ReplyCommand;
 import com.weavey.loading.lib.LoadingLayout;
@@ -28,6 +29,7 @@ public class TaskListViewModel {
 
     //<editor-fold desc="数据模型    Items">
     public final ObservableList<Task> items = new ObservableArrayList<>();
+    public final ObservableList<TaskType> mTaskType = new ObservableArrayList<>();
     //</editor-fold>
 
     //<editor-fold desc="控件命令    Command">

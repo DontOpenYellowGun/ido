@@ -1,8 +1,9 @@
 package debug;
 
+import android.content.Context;
+import android.support.multidex.MultiDex;
+
 import com.fangao.lib_common.base.BaseApplication;
-import com.fangao.lib_common.http.CommonRequest;
-import com.dreambuilder.module_main.support.manager.LibManager;
 
 /**
  * 文件描述：
@@ -21,5 +22,11 @@ public class DebugApplication extends BaseApplication {
     private void init() {
 //        LibManager.initIm(this);
 //        CommonRequest.getInitData();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

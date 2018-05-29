@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.dreambuilder.module_task.model.TaskType" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:theme="@style/ThemeCardView"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp"
+        app:contentPaddingBottom="8dp"
+        app:contentPaddingLeft="14dp"
+        app:contentPaddingRight="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="40dp"
+                android:text="新增"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/task_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/task_color_gray_text"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                tools:text="" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="14dp"
+                android:background="@drawable/task_ic_add_black_32dp"
+                android:contentDescription="@string/task_add_task_type" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</layout>
