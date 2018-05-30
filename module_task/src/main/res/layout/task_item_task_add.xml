@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,19 +10,16 @@
     </data>
 
     <android.support.v7.widget.CardView
+        style="@style/ThemeRadiusCardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:theme="@style/ThemeCardView"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="6dp"
-        app:contentPaddingBottom="8dp"
-        app:contentPaddingLeft="14dp"
-        app:contentPaddingRight="0dp">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp">
 
             <TextView
                 android:id="@+id/name"

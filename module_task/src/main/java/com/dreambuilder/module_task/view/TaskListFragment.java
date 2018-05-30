@@ -53,12 +53,12 @@ public class TaskListFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        mBinding.addTaskImageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                start("/task/TaskDetailFragment");
-//            }
-//        });
+        mBinding.addTaskImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                start("/task/TaskDetailFragment");
+            }
+        });
         initRecyclerView();
         initTypeRecyclerView();
     }
@@ -97,7 +97,7 @@ public class TaskListFragment extends BaseFragment {
         mTaskListAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
-                mViewModel.items.remove(position);
+//                mViewModel.items.remove(position);
                 return false;
             }
         });

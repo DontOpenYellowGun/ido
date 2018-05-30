@@ -79,17 +79,15 @@
                         android:textColor="@color/task_color_gray_celebrated"
                         android:textSize="14sp" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp" />
-
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/task_recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginRight="50dp"
-                        android:minHeight="168dp" />
+                        android:clipToPadding="false"
+                        android:minHeight="168dp"
+                        android:paddingLeft="50dp"
+                        android:paddingRight="50dp"
+                        android:paddingTop="40dp" />
 
                     <Space
                         android:layout_width="match_parent"

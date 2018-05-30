@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -11,18 +9,16 @@
     </data>
 
     <android.support.v7.widget.CardView
+        style="@style/ThemeRadiusCardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:theme="@style/ThemeCardView"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="6dp">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginLeft="14dp">
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp">
 
             <TextView
                 android:id="@+id/name"
@@ -30,7 +26,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="40dp"
-                android:background="@null"
                 android:text="个人"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -42,7 +37,6 @@
                 android:layout_below="@id/name"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="4dp"
-                android:background="@null"
                 android:text="任务：100"
                 android:textColor="@color/task_color_gray_text"
                 android:textSize="12sp" />

@@ -37,7 +37,7 @@ public class TaskListViewModel {
     public final ReplyCommand AddTaskCommand = new ReplyCommand(new Action() {
         @Override
         public void run() throws Exception {
-//            mFragment.start("/task/TaskDetailFragment");
+            mFragment.start("/task/TaskDetailFragment");
         }
     });
     //</editor-fold>

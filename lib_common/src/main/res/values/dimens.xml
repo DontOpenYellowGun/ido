@@ -6,8 +6,14 @@
     <dimen name="toolbar_elevation">6dp</dimen>
     <dimen name="main_bottom_bar_height">49dp</dimen>
     <dimen name="default_padding">0dp</dimen>
+
+
     <dimen name="default_card_radius">0dp</dimen>
     <dimen name="default_card_elevation">0dp</dimen>
     <dimen name="default_card_content_padding">6dp</dimen>
+
+    <dimen name="card_radius">6dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_content_padding">8dp</dimen>
 
 </resources>

@@ -1,0 +1,23 @@
+<resources>
+
+    <!--CardView-->
+    <style name="ThemeNoRadiusCardView" parent="CardView">
+        <item name="android:stateListAnimator">@animator/touch_raise</item>
+        <item name="android:foreground">?selectableItemBackgroundBorderless</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">@dimen/default_card_radius</item>
+        <item name="cardElevation">@dimen/default_card_elevation</item>
+        <item name="contentPadding">@dimen/default_padding</item>
+    </style>
+
+    <!--CardView-->
+    <style name="ThemeRadiusCardView" parent="CardView">
+        <item name="android:stateListAnimator">@animator/touch_raise</item>
+        <item name="android:foreground">?selectableItemBackgroundBorderless</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="contentPadding">0dp</item>
+    </style>
+
+</resources>

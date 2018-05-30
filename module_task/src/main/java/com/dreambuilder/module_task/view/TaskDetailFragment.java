@@ -39,4 +39,8 @@ public class TaskDetailFragment extends BaseFragment {
 
     }
 
+    @Override
+    public int getWindowBackgroundColor() {
+        return R.color.colorPrimary;
+    }
 }
