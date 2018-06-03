@@ -7,10 +7,10 @@ import me.yokeyword.fragmentation.R;
 public class DefaultFadeAnimator extends FragmentAnimator {
 
     public DefaultFadeAnimator() {
-        enter = R.anim.task_f_fragment_enter;
-        exit = R.anim.task_f_fragment_exit;
-        popEnter =R.anim.task_f_fragment_pop_enter;
-        popExit =R.anim.task_f_fragment_pop_exit;
+        enter = R.anim.fade_fragment_enter;
+        exit = R.anim.fade_fragment_exit;
+        popEnter =R.anim.fade_fragment_pop_enter;
+        popExit =R.anim.fade_fragment_pop_exit;
     }
 
     protected DefaultFadeAnimator(Parcel in) {

@@ -1,3 +1,3 @@
 include ':app', ':lib_common', ':lib_binding', ':lib_refresh', ':lib_loadinglayout', ':lib_fragmentpro',
-        ':module_login', ':module_main', ':module_task'
+        /*':module_login', ':module_main',*/ ':module_task'
 

@@ -20,6 +20,7 @@ import com.dreambuilder.module_task.model.Task;
 import com.dreambuilder.module_task.model.TaskType;
 import com.dreambuilder.module_task.view.adapter.TaskListAdapter;
 import com.dreambuilder.module_task.view.adapter.TaskTypeAdapter;
+import com.dreambuilder.module_task.view.anim.SpecialFadeAnimator;
 import com.dreambuilder.module_task.viewmodel.TaskListViewModel;
 import com.fangao.lib_common.base.BaseFragment;
 import com.fangao.lib_common.util.DensityUtils;
@@ -42,6 +43,8 @@ public class TaskListFragment extends BaseFragment {
 
     private TaskListAdapter mTaskListAdapter;
 
+    private ObservableList.OnListChangedCallback<ObservableList<Task>> listChangedCallback;
+
     @Override
     protected View initBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.task_fragment_task_list, container, false);
@@ -53,17 +56,22 @@ public class TaskListFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setupAddButton();
+        setupRecyclerView();
+        setupTypeRecyclerView();
+    }
+
+    private void setupAddButton() {
         mBinding.addTaskImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setFragmentAnimator(new SpecialFadeAnimator());
                 start("/task/TaskDetailFragment");
             }
         });
-        initRecyclerView();
-        initTypeRecyclerView();
     }
 
-    private void initTypeRecyclerView() {
+    private void setupTypeRecyclerView() {
         mBinding.typeRecyclerView.setLayoutManager(new GridLayoutManager(_mActivity, 2));
         mBinding.typeRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, DensityUtils.dip2px(16), false, 0));
         TaskTypeAdapter adapter = new TaskTypeAdapter(_mActivity, mViewModel.mTaskType);
@@ -78,7 +86,13 @@ public class TaskListFragment extends BaseFragment {
         mViewModel.mTaskType.add(new TaskType());
     }
 
-    private void initRecyclerView() {
+    @Override
+    public void onDestroy() {
+        mViewModel.items.removeOnListChangedCallback(listChangedCallback);
+        super.onDestroy();
+    }
+
+    private void setupRecyclerView() {
         RecyclerView taskRecyclerView = mBinding.taskRecyclerView;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(_mActivity);
         taskRecyclerView.setLayoutManager(linearLayoutManager);
@@ -102,7 +116,7 @@ public class TaskListFragment extends BaseFragment {
             }
         });
         taskRecyclerView.setAdapter(mTaskListAdapter);
-        mViewModel.items.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Task>>() {
+        listChangedCallback = new ObservableList.OnListChangedCallback<ObservableList<Task>>() {
             @Override
             public void onChanged(ObservableList<Task> sender) {
                 mTaskListAdapter.notifyDataSetChanged();
@@ -127,7 +141,8 @@ public class TaskListFragment extends BaseFragment {
             public void onItemRangeRemoved(ObservableList<Task> sender, int positionStart, int itemCount) {
                 mTaskListAdapter.notifyItemRangeRemoved(positionStart, itemCount);
             }
-        });
+        };
+        mViewModel.items.addOnListChangedCallback(listChangedCallback);
         for (int i = 0; i < 4; i++) {
             mViewModel.items.add(new Task("todo" + i));
         }
