@@ -4,5 +4,5 @@
     <string name="task_avatar">头像</string>
     <string name="task_add_task">添加任务</string>
     <string name="task_add_task_type">添加任务分类</string>
-    <string name="task_task_name">请输入任务名称</string>
+    <string name="task_task_name">输入任务名称</string>
 </resources>

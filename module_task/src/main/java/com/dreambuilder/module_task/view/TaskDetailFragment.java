@@ -2,11 +2,15 @@ package com.dreambuilder.module_task.view;
 
 
 import android.animation.Animator;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.databinding.DataBindingUtil;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,13 +78,14 @@ public class TaskDetailFragment extends BaseFragment {
         mRevealAnimListener = new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-//                Log.d("TaskDetailFragment", "onAnimationStart");
-//                LinearLayout viewById = mBinding.getRoot().findViewById(R.id.linear_form);
-//                Animation anim = AnimationUtils.loadAnimation(_mActivity, R.anim.task_anim_task_detail_list);
-//                LayoutAnimationController controller = new LayoutAnimationController(anim);
-//                controller.setDelay(0.5f);
-//                controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
-//                viewById.setLayoutAnimation(controller);
+                int startColor = ContextCompat.getColor(_mActivity, R.color.colorPrimary);
+                int endColor = ContextCompat.getColor(_mActivity, R.color.windowBackground);
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(mBinding.getRoot(), "backgroundColor", startColor, endColor);
+                colorAnim.setDuration(800);
+                colorAnim.setEvaluator(new ArgbEvaluator());
+                colorAnim.setRepeatMode(ValueAnimator.RESTART);
+                colorAnim.setRepeatCount(0);
+                colorAnim.start();
             }
 
             @Override
@@ -102,8 +107,4 @@ public class TaskDetailFragment extends BaseFragment {
         return animator;
     }
 
-    @Override
-    public int getWindowBackgroundColor() {
-        return R.color.colorPrimary;
-    }
 }
