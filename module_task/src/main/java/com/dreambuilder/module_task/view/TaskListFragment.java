@@ -31,6 +31,7 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 /**
  * 文件描述：主页
+ *
  * <p>
  * 作者：   Created by Sven on 2017/7/21 0021.
  */
